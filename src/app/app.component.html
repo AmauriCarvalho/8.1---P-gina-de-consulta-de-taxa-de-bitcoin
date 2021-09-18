@@ -1,0 +1,25 @@
+<h1>Nome: Amauri do Espirito Santo Carvalho<br>
+  RA: 0050831921042<br>
+</h1>
+
+<h2>BitCoin$</h2>
+<p>Atualiza a cada minuto:
+{{timer.getCount()}}s</p>
+
+<table border="1">
+  <tr>
+    <th>Data/hora</th>
+    <th>USD</th>
+    <th>BRL</th>
+  </tr>
+  <tr *ngFor="let rate of this.bit.BitCoinRates">
+    <td>{{rate.time.updated}}</td>
+    <td>
+      $ {{rate.bpi.USD.rate_float}}
+    </td>
+    <td>
+      R$ {{rate.bpi.BRL.rate_float}}
+    </td>
+  </tr>
+</table>
+

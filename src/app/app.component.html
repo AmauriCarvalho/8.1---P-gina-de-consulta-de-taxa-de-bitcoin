@@ -11,8 +11,9 @@
     <th>Data/hora</th>
     <th>USD</th>
     <th>BRL</th>
+    <th>BRL</th>
   </tr>
-  <tr *ngFor="let rate of this.bit.BitCoinRates">
+  <tr *ngFor="let rate of this.bit.BitCoinRates;let i=index">
     <td>{{rate.time.updated}}</td>
     <td>
       $ {{rate.bpi.USD.rate_float}}
@@ -20,6 +21,9 @@
     <td>
       R$ {{rate.bpi.BRL.rate_float}}
     </td>
+    <td>
+    R$ {{this.bit.BitCoinRates2[i].bpi.EUR.rate_float}}
+  </td>
   </tr>
 </table>
 

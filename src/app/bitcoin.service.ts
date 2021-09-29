@@ -8,7 +8,10 @@ interface BitCoinRate{
     }
     BRL: {
       rate_float: number;
-    } 
+    }
+    EUR:{
+      rate_float: number;
+    }
   }
 
 }
@@ -17,12 +20,16 @@ interface BitCoinRate{
 
 export class BitcoinService {
   BitCoinRates: Array<BitCoinRate> = [];
+  BitCoinRates2: Array<BitCoinRate> = [];
 
   constructor(private http: HttpClient) { }
 
   updateBitCoinRates(){
     this.http.get<BitCoinRate>("https://api.coindesk.com/v1/bpi/currentprice/BRL.json").subscribe(data => {
       this.BitCoinRates.push(data);
+    });
+    this.http.get<BitCoinRate>("https://api.coindesk.com/v1/bpi/currentprice.json").subscribe(data => {
+      this.BitCoinRates2.push(data);
     });
   }
 
